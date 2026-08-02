@@ -50,10 +50,14 @@ Cada entrada también puede definir ajustes opcionales para el encuadre de su fo
   modalImagePosition: "50% 42%",
   imageScale: 1.1,
   modalImageScale: 1.05,
+  cropBottom: 8,
+  modalCropBottom: 8,
 }
 ```
 
 `imagePosition` e `imageScale` controlan el encuadre de la tarjeta. `modalImagePosition` y `modalImageScale` permiten ajustar por separado la imagen grande del modal.
+
+Los campos `cropTop`, `cropBottom`, `cropLeft` y `cropRight` recortan franjas rectangulares completas en la tarjeta. Para el modal se pueden usar sus equivalentes `modalCropTop`, `modalCropBottom`, `modalCropLeft` y `modalCropRight`. Los valores son porcentajes entre 0 y 45.
 
 ## Eliminar un producto
 
