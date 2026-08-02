@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TempoLux: catálogo de productos y pedidos por WhatsApp."><meta name="theme-color" content="#293b4a">
+  <title>TempoLux | Catálogo</title><link rel="stylesheet" href="style.css">
+  <script src="data/products.js" defer></script><script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <header id="inicio"><div class="container header-inner">
+    <a class="brand" href="#inicio" aria-label="TempoLux, ir al inicio"><span class="logo" aria-hidden="true">TL</span><span><strong>TempoLux</strong><small>Detalles para cada momento</small></span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu"><span class="sr-only">Abrir menú</span><i></i><i></i><i></i></button>
+    <nav id="menu" aria-label="Navegación principal"><a href="#catalogo">Productos</a><a href="#destacados">Destacados</a><a href="#nosotros">Nosotros</a><a href="#pedidos">Cómo pedir</a></nav>
+  </div></header>
+  <main id="contenido">
+    <section class="hero"><div class="container hero-grid"><div>
+      <p class="eyebrow">Catálogo TempoLux</p><h1>Detalles que hacen especial cada momento.</h1>
+      <p class="lead">Muy pronto podrás explorar nuestra selección y pedir fácilmente por WhatsApp.</p><a class="button" href="#catalogo">Ver productos</a>
+    </div><div class="hero-art" role="img" aria-label="Espacio reservado para fotografía principal"><span>Fotografía principal pendiente</span></div></div></section>
+    <section class="section" id="catalogo"><div class="container">
+      <div class="section-head"><div><p class="eyebrow">Nuestro catálogo</p><h2>Productos</h2></div><p>Se actualizará cuando recibamos la información real.</p></div>
+      <div class="tools"><label><span class="sr-only">Buscar productos</span><input id="search" type="search" placeholder="Buscar productos…" autocomplete="off"></label><div id="filters" class="filters" aria-label="Filtrar por categoría"></div></div>
+      <p id="summary" class="summary" aria-live="polite"></p><div id="products" class="grid"></div>
+      <div id="catalog-empty" class="empty"><b aria-hidden="true">✦</b><h3>Catálogo pendiente</h3><p>Aquí aparecerán los productos cuando se agreguen nombres, precios, fotografías y categorías reales.</p></div>
+    </div></section>
+    <section class="section tinted" id="destacados"><div class="container"><p class="eyebrow">Selección especial</p><h2>Destacados y ofertas</h2><div id="featured" class="grid"></div><div id="featured-empty" class="empty compact"><p>Productos destacados pendientes de confirmar.</p></div></div></section>
+    <section class="section" id="nosotros"><div class="container info-grid"><div><p class="eyebrow">Sobre nosotros</p><h2>TempoLux</h2><p>Este espacio está preparado para contar la historia, propósito y propuesta de valor del emprendimiento.</p><em>Contenido institucional pendiente.</em></div>
+      <div class="info-card" id="pedidos"><p class="eyebrow">Simple y cercano</p><h2>¿Cómo hacer un pedido?</h2><ol><li>Explora el catálogo.</li><li>Elige el producto que te interesa.</li><li>Escríbenos por WhatsApp para confirmar disponibilidad y entrega.</li></ol><em>Cobertura, tiempos de entrega y formas de pago pendientes.</em></div>
+    </div></section>
+  </main>
+  <a class="whatsapp disabled" href="#pedidos" aria-label="WhatsApp pendiente de configurar" aria-disabled="true">WA</a>
+  <footer><div class="container footer-grid"><div><strong>TempoLux</strong><p>Detalles para cada momento.</p></div><div><h2>Contacto</h2><p>WhatsApp: pendiente<br>Correo: pendiente</p></div><div><h2>Redes sociales</h2><p>Enlaces pendientes</p></div></div><div class="container footer-bottom"><p>© <span id="year"></span> TempoLux.</p><a href="#inicio">Volver arriba ↑</a></div></footer>
+  <noscript><p class="noscript">Activa JavaScript para buscar y filtrar el catálogo.</p></noscript>
+</body></html>
