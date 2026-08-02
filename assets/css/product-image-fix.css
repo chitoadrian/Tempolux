@@ -8,4 +8,5 @@
   object-position: var(--image-position, 50% 45%);
   background: #fff;
   transform: scale(var(--image-scale, 1.08));
+  transform-origin: var(--image-position, 50% 45%);
 }
