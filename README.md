@@ -8,7 +8,9 @@ Tienda virtual estática, moderna y adaptable a celulares. Permitirá consultar 
 - Logo oficial, WhatsApp, contacto y redes sociales.
 - Información de entregas y formas de pago.
 
-No se incluyen datos personales ni productos ficticios.
+No se incluyen datos personales ni información real pendiente de confirmar.
+
+La rama de desarrollo incluye temporalmente productos claramente marcados como **Producto de muestra** y precios señalados como temporales. Sirven únicamente para aprobar el diseño y deben reemplazarse antes de publicar el catálogo definitivo.
 
 ## Estructura
 
@@ -24,5 +26,7 @@ app.js           Menú, búsqueda, filtros y tarjetas
 ## Actualizar el catálogo
 
 Agrega únicamente datos reales a `window.TEMPOLUX_PRODUCTS` en `data/products.js`, siguiendo el formato documentado allí. Para activar los pedidos, completa `whatsappNumber` con el número internacional usando solo dígitos.
+
+Coloca el logo oficial en `assets/logo/logo-tempolux.png`. La página mostrará automáticamente el logo cuando el archivo exista y conservará un monograma temporal mientras esté pendiente.
 
 El sitio no requiere instalaciones: abre `index.html` en un navegador. Es compatible con GitHub Pages.
