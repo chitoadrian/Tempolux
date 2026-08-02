@@ -71,7 +71,9 @@
     const position = isModal
       ? product.modalImagePosition || product.imagePosition || "50% 45%"
       : product.imagePosition || "50% 45%";
-    const scale = Number(product.imageScale) || 1.08;
+    const scale = isModal
+      ? Number(product.modalImageScale) || Number(product.imageScale) || 1.08
+      : Number(product.imageScale) || 1.08;
 
     return `<img class="product-photo ${className}" src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy" width="640" height="640" style="--image-position: ${escapeHtml(position)}; --image-scale: ${scale}">`;
   }
