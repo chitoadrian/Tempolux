@@ -12,6 +12,10 @@ window.TEMPOLUX_CONFIG = {
 window.TEMPOLUX_PRODUCT_DETAILS = {
   "collar-ojo-proteccion": {
     description: "Collar decorativo con dije de ojo protector, ideal para dar un toque especial a tu estilo diario.",
+    imagePosition: "48% 0%",
+    modalImagePosition: "48% 0%",
+    imageScale: 1.24,
+    modalImageScale: 1.18,
   },
   "collar-perlitas-mariposa": {
     description: "Collar de perlitas con detalle de mariposa, delicado y fácil de combinar.",
@@ -80,6 +84,10 @@ window.TEMPOLUX_PRODUCT_DETAILS = {
   },
   "locion-colageno-sanki-sweetie": {
     description: "Loción corporal de colágeno Sanki Sweetie para complementar el cuidado diario de la piel.",
+    imagePosition: "46% 0%",
+    modalImagePosition: "48% 0%",
+    imageScale: 1.24,
+    modalImageScale: 1.16,
   },
   "gorra-ny-roja-texturizada": {
     description: "Gorra NY roja con acabado texturizado, cómoda para completar un look casual.",
@@ -89,15 +97,31 @@ window.TEMPOLUX_PRODUCT_DETAILS = {
   },
   "perfume-velvet-rose": {
     description: "Perfume Velvet Rose con una presentación delicada para usar en cualquier ocasión.",
+    imagePosition: "32% 24%",
+    modalImagePosition: "38% 30%",
+    imageScale: 1.28,
+    modalImageScale: 1.18,
   },
   "gorra-ny-gris-texturizada": {
     description: "Gorra NY gris con acabado texturizado, fácil de combinar con diferentes atuendos.",
+    imagePosition: "44% 38%",
+    modalImagePosition: "46% 42%",
+    imageScale: 1.18,
+    modalImageScale: 1.1,
   },
   "perfume-passionate-mood-chq": {
     description: "Perfume Passionate Mood CHQ en formato práctico para acompañarte durante el día.",
+    imagePosition: "50% 46%",
+    modalImagePosition: "50% 48%",
+    imageScale: 1.24,
+    modalImageScale: 1.14,
   },
   "perfume-fantasy-femme": {
     description: "Perfume Fantasy Femme con una presentación femenina y compacta para uso diario.",
+    imagePosition: "50% 44%",
+    modalImagePosition: "50% 47%",
+    imageScale: 1.24,
+    modalImageScale: 1.14,
   },
   "panitos-humedos-dinosaurio-rosa": {
     description: "Pañitos húmedos con empaque de dinosaurio rosa, prácticos para llevar a cualquier lugar.",
@@ -115,6 +139,10 @@ window.TEMPOLUX_PRODUCT_DETAILS = {
   },
   "splash-salvaje-lady-idea": {
     description: "Splash Salvaje Lady Idea en formato práctico para complementar tu rutina personal.",
+    imagePosition: "48% 0%",
+    modalImagePosition: "50% 0%",
+    imageScale: 1.16,
+    modalImageScale: 1.12,
   },
   "collar-geometrico-dorado": {
     description: "Collar dorado con diseño geométrico, moderno y sencillo de combinar.",
@@ -124,9 +152,10 @@ window.TEMPOLUX_PRODUCT_DETAILS = {
   },
   "anillo-ojo-turco-ajustable": {
     description: "Anillo ajustable con detalle de ojo turco. Disponible en azul y multicolor.",
-    imagePosition: "50% 40%",
-    modalImagePosition: "50% 42%",
-    imageScale: 1.1,
+    imagePosition: "50% 0%",
+    modalImagePosition: "50% 0%",
+    imageScale: 1.4,
+    modalImageScale: 1.23,
   },
   "maquina-cortar-cabello-sokany": {
     description: "Máquina Sokany para cortar cabello, una opción práctica para el cuidado personal en casa.",
@@ -173,11 +202,11 @@ window.TEMPOLUX_PRODUCT_DETAILS = {
   },
   "llavero-mickey-minnie": {
     description: "Llavero de Mickey y Minnie, un detalle especial para llaves, bolsos o mochilas.",
-    imagePosition: "50% 40%", imageScale: 1.13,
+    imagePosition: "48% 0%", imageScale: 1.18, modalImageScale: 1.18,
   },
   "llavero-goku-azul": {
     description: "Llavero de Goku azul para personalizar tus llaves con un diseño llamativo.",
-    imagePosition: "50% 40%", imageScale: 1.13,
+    imagePosition: "48% 0%", imageScale: 1.18, modalImageScale: 1.18,
   },
   "llavero-cerezas-rojas": {
     description: "Llavero de cerezas rojas, un accesorio alegre para decorar tus pertenencias.",
