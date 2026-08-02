@@ -2,26 +2,51 @@
   "use strict";
 
   const config = window.TEMPOLUX_CONFIG || {};
-  const items = Array.isArray(window.TEMPOLUX_PRODUCTS)
-    ? window.TEMPOLUX_PRODUCTS
-    : [];
+  const categories = [
+    "Todos",
+    "Accesorios",
+    "Relojes",
+    "Perfumes",
+    "Belleza",
+    "Cuidado personal",
+    "Tecnología",
+    "Gorras",
+    "Llaveros",
+  ];
+  const variantOptions = {
+    "Cera para Cabello Shiner Gold": [
+      "Dorado",
+      "Naranja",
+      "Beige",
+      "Verde",
+      "Negro",
+      "Azul",
+      "Morado",
+      "Rojo",
+    ],
+    "Anillo Ojo Turco Ajustable": ["Azul", "Multicolor"],
+  };
+
   const menuButton = document.querySelector(".menu-toggle");
-  const menu = document.querySelector("nav");
+  const menu = document.querySelector("#menu");
   const search = document.querySelector("#search");
   const filters = document.querySelector("#filters");
-  const grid = document.querySelector("#products");
-  const featured = document.querySelector("#featured");
+  const productGrid = document.querySelector("#products");
+  const featuredGrid = document.querySelector("#featured");
   const summary = document.querySelector("#summary");
   const catalogEmpty = document.querySelector("#catalog-empty");
   const featuredEmpty = document.querySelector("#featured-empty");
   const floatingWhatsApp = document.querySelector(".whatsapp");
-  const officialLogo = document.querySelector(".official-logo");
-  const logoFallback = document.querySelector(".logo-fallback");
+  const productDialog = document.querySelector("#product-dialog");
+  const dialogContent = document.querySelector("#dialog-product-content");
+  const dialogClose = document.querySelector("#dialog-close");
+  const catalogError = document.querySelector("#catalog-error");
 
-  let active = "Todas";
+  let products = [];
+  let activeCategory = "Todos";
 
   const escapeHtml = (value) =>
-    String(value).replace(
+    String(value ?? "").replace(
       /[&<>'"]/g,
       (character) =>
         ({
@@ -33,108 +58,39 @@
         })[character],
     );
 
-  function isValidWhatsAppNumber(number) {
-    return /^\d{7,15}$/.test(String(number || "").trim());
+  function whatsappUrl(product, variant = "") {
+    const variantText = variant ? `, variante ${variant}` : "";
+    const message = `Hola, deseo información sobre ${product.name} por ${product.price}${variantText}.`;
+
+    return `https://wa.me/${config.whatsappNumber}?text=${encodeURIComponent(message)}`;
   }
 
-  function configureFloatingWhatsApp() {
-    const whatsappNumber = String(config.whatsappNumber || "").trim();
-
-    if (!isValidWhatsAppNumber(whatsappNumber)) {
-      return;
-    }
-
-    floatingWhatsApp.href = `https://wa.me/${whatsappNumber}`;
-    floatingWhatsApp.target = "_blank";
-    floatingWhatsApp.rel = "noopener noreferrer";
-    floatingWhatsApp.classList.remove("disabled");
-    floatingWhatsApp.removeAttribute("aria-disabled");
-    floatingWhatsApp.setAttribute("aria-label", "Contactar a TempoLux por WhatsApp");
-    floatingWhatsApp.querySelector("small").textContent = "Escríbenos";
-  }
-
-  function configureOfficialLogo() {
-    if (!officialLogo || !logoFallback) {
-      return;
-    }
-
-    officialLogo.src = config.logoPath || "assets/logo/logo-tempolux.png";
-
-    officialLogo.addEventListener("load", () => {
-      officialLogo.hidden = false;
-      logoFallback.hidden = true;
-    });
-
-    officialLogo.addEventListener("error", () => {
-      officialLogo.hidden = true;
-      logoFallback.hidden = false;
-    });
-
-    if (officialLogo.complete && officialLogo.naturalWidth > 0) {
-      officialLogo.hidden = false;
-      logoFallback.hidden = true;
-    }
+  function productImage(product, className = "") {
+    return `<img class="product-photo ${className}" src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy" width="640" height="640">`;
   }
 
   function productCard(product) {
-    const available = product.available === true;
-    const whatsappNumber = String(config.whatsappNumber || "").trim();
-    const ready = isValidWhatsAppNumber(whatsappNumber) && available;
-    const image = product.image
-      ? `<img src="${escapeHtml(product.image)}" alt="${escapeHtml(
-          product.imageAlt || product.name,
-        )}" loading="lazy" width="640" height="480">`
-      : `<span class="product-visual" data-visual="${escapeHtml(
-          product.visual || "default",
-        )}" role="img" aria-label="Representación visual temporal del producto"><i></i><b></b></span>`;
-    const message = encodeURIComponent(
-      `Hola, deseo consultar por: ${product.name}`,
-    );
-    const link = ready
-      ? `https://wa.me/${whatsappNumber}?text=${message}`
-      : "#pedidos";
-
     return `
-      <article class="card">
-        <div class="product-image">
-          ${product.sample ? '<span class="sample-badge">Producto de muestra</span>' : ""}
-          ${image}
-        </div>
+      <article class="card product-card" data-product-id="${escapeHtml(product.id)}" tabindex="0" aria-label="Ver detalles de ${escapeHtml(product.name)}">
+        <div class="product-image">${productImage(product)}</div>
         <div class="card-body">
           <div class="meta">
             <span>${escapeHtml(product.category)}</span>
-            <span class="status ${available ? "" : "sold"}">
-              ${available ? "Disponible" : "Agotado"}
-            </span>
+            <span class="status ${product.available ? "" : "sold"}">${product.available ? "Disponible" : "Agotado"}</span>
           </div>
           <h3>${escapeHtml(product.name)}</h3>
-          <p>${escapeHtml(product.description)}</p>
           <span class="price">${escapeHtml(product.price)}</span>
-          <a class="button" href="${link}" ${
-            ready
-              ? 'target="_blank" rel="noopener noreferrer"'
-              : 'aria-disabled="true"'
-          }>${ready ? "Pedir por WhatsApp" : "WhatsApp pendiente"}</a>
+          <button class="button product-order" type="button" data-order-id="${escapeHtml(product.id)}">Pedir por WhatsApp</button>
         </div>
       </article>
     `;
   }
 
   function renderFilters() {
-    const categories = [
-      "Todas",
-      ...new Set(items.map((product) => product.category).filter(Boolean)),
-    ];
-
     filters.innerHTML = categories
       .map(
         (category) => `
-          <button
-            class="filter"
-            type="button"
-            data-category="${escapeHtml(category)}"
-            aria-pressed="${category === active}"
-          >${escapeHtml(category)}</button>
+          <button class="filter" type="button" data-category="${escapeHtml(category)}" aria-pressed="${category === activeCategory}">${escapeHtml(category)}</button>
         `,
       )
       .join("");
@@ -142,36 +98,114 @@
 
   function renderProducts() {
     const term = search.value.trim().toLocaleLowerCase("es");
-    const results = items.filter((product) => {
+    const visibleProducts = products.filter((product) => {
       const matchesCategory =
-        active === "Todas" || product.category === active;
-      const searchableText =
-        `${product.name} ${product.description} ${product.category}`.toLocaleLowerCase(
-          "es",
-        );
-
-      return matchesCategory && searchableText.includes(term);
+        activeCategory === "Todos" || product.category === activeCategory;
+      return (
+        matchesCategory &&
+        product.name.toLocaleLowerCase("es").includes(term)
+      );
     });
-    const featuredItems = items.filter((product) => product.featured === true);
+    const featuredProducts = (config.featuredProductIds || [])
+      .map((id) => products.find((product) => product.id === id))
+      .filter(Boolean);
 
-    grid.innerHTML = results.map(productCard).join("");
-    featured.innerHTML = featuredItems.map(productCard).join("");
-    catalogEmpty.hidden = results.length > 0;
-    featuredEmpty.hidden = featuredItems.length > 0;
-    summary.textContent = items.length
-      ? `${results.length} producto${results.length === 1 ? "" : "s"} encontrado${
-          results.length === 1 ? "" : "s"
-        }.`
-      : "Catálogo pendiente de productos reales.";
+    productGrid.innerHTML = visibleProducts.map(productCard).join("");
+    featuredGrid.innerHTML = featuredProducts.map(productCard).join("");
+    catalogEmpty.hidden = visibleProducts.length > 0;
+    featuredEmpty.hidden = featuredProducts.length > 0;
+    summary.textContent = `${visibleProducts.length} producto${visibleProducts.length === 1 ? "" : "s"}.`;
+  }
+
+  function variantField(product) {
+    const options = variantOptions[product.name];
+
+    if (!options) {
+      return "";
+    }
+
+    return `
+      <label class="variant-field">
+        <span>Elige una opción</span>
+        <select id="dialog-variant">
+          ${options.map((option) => `<option value="${escapeHtml(option)}">${escapeHtml(option)}</option>`).join("")}
+        </select>
+      </label>
+    `;
+  }
+
+  function openProduct(product) {
+    dialogContent.innerHTML = `
+      <div class="dialog-image">${productImage(product, "dialog-photo")}</div>
+      <div class="dialog-details">
+        <p class="eyebrow">${escapeHtml(product.category)}</p>
+        <h2 id="dialog-title">${escapeHtml(product.name)}</h2>
+        <p class="dialog-price">${escapeHtml(product.price)}</p>
+        <p class="dialog-description">${escapeHtml(product.description || "Consulta los detalles y la disponibilidad de este producto directamente por WhatsApp.")}</p>
+        <p class="dialog-status"><span aria-hidden="true"></span>${product.available ? "Disponible" : "Agotado"}</p>
+        ${variantField(product)}
+        <a class="button dialog-order" href="${whatsappUrl(product)}" target="_blank" rel="noopener noreferrer">Pedir por WhatsApp</a>
+      </div>
+    `;
+
+    const variantSelect = dialogContent.querySelector("#dialog-variant");
+    const orderLink = dialogContent.querySelector(".dialog-order");
+
+    if (variantSelect) {
+      const updateLink = () => {
+        orderLink.href = whatsappUrl(product, variantSelect.value);
+      };
+      variantSelect.addEventListener("change", updateLink);
+      updateLink();
+    }
+
+    productDialog.showModal();
+  }
+
+  function findProduct(id) {
+    return products.find((product) => product.id === id);
+  }
+
+  function handleGridClick(event) {
+    const orderButton = event.target.closest("[data-order-id]");
+
+    if (orderButton) {
+      event.stopPropagation();
+      const product = findProduct(orderButton.dataset.orderId);
+      if (product) openProduct(product);
+      return;
+    }
+
+    const card = event.target.closest("[data-product-id]");
+    if (card) openProduct(findProduct(card.dataset.productId));
+  }
+
+  function handleGridKeydown(event) {
+    if ((event.key === "Enter" || event.key === " ") && event.target.matches("[data-product-id]")) {
+      event.preventDefault();
+      openProduct(findProduct(event.target.dataset.productId));
+    }
+  }
+
+  async function loadCatalog() {
+    try {
+      const response = await fetch(config.catalogPath, { cache: "no-cache" });
+      if (!response.ok) throw new Error(`No se pudo cargar el catálogo (${response.status}).`);
+      const data = await response.json();
+      if (!Array.isArray(data)) throw new Error("El catálogo no tiene un formato válido.");
+      products = data;
+      renderProducts();
+    } catch (error) {
+      console.error(error);
+      catalogError.hidden = false;
+      summary.textContent = "No fue posible cargar el catálogo.";
+    }
   }
 
   menuButton.addEventListener("click", () => {
     const open = menuButton.getAttribute("aria-expanded") === "true";
-
     menuButton.setAttribute("aria-expanded", String(!open));
-    menuButton.querySelector(".sr-only").textContent = open
-      ? "Abrir menú"
-      : "Cerrar menú";
+    menuButton.querySelector(".sr-only").textContent = open ? "Abrir menú" : "Cerrar menú";
     menu.classList.toggle("open", !open);
   });
 
@@ -179,27 +213,29 @@
     if (event.target.matches("a")) {
       menu.classList.remove("open");
       menuButton.setAttribute("aria-expanded", "false");
-      menuButton.querySelector(".sr-only").textContent = "Abrir menú";
     }
   });
 
   filters.addEventListener("click", (event) => {
-    const button = event.target.closest("button[data-category]");
-
-    if (!button) {
-      return;
-    }
-
-    active = button.dataset.category;
+    const button = event.target.closest("[data-category]");
+    if (!button) return;
+    activeCategory = button.dataset.category;
     renderFilters();
     renderProducts();
   });
 
   search.addEventListener("input", renderProducts);
-  document.querySelector("#year").textContent = new Date().getFullYear();
+  productGrid.addEventListener("click", handleGridClick);
+  featuredGrid.addEventListener("click", handleGridClick);
+  productGrid.addEventListener("keydown", handleGridKeydown);
+  featuredGrid.addEventListener("keydown", handleGridKeydown);
+  dialogClose.addEventListener("click", () => productDialog.close());
+  productDialog.addEventListener("click", (event) => {
+    if (event.target === productDialog) productDialog.close();
+  });
 
-  configureFloatingWhatsApp();
-  configureOfficialLogo();
+  floatingWhatsApp.href = `https://wa.me/${config.whatsappNumber}`;
+  document.querySelector("#year").textContent = new Date().getFullYear();
   renderFilters();
-  renderProducts();
+  loadCatalog();
 })();
