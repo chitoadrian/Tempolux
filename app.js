@@ -15,6 +15,8 @@
   const catalogEmpty = document.querySelector("#catalog-empty");
   const featuredEmpty = document.querySelector("#featured-empty");
   const floatingWhatsApp = document.querySelector(".whatsapp");
+  const officialLogo = document.querySelector(".official-logo");
+  const logoFallback = document.querySelector(".logo-fallback");
 
   let active = "Todas";
 
@@ -48,6 +50,30 @@
     floatingWhatsApp.classList.remove("disabled");
     floatingWhatsApp.removeAttribute("aria-disabled");
     floatingWhatsApp.setAttribute("aria-label", "Contactar a TempoLux por WhatsApp");
+    floatingWhatsApp.querySelector("small").textContent = "Escríbenos";
+  }
+
+  function configureOfficialLogo() {
+    if (!officialLogo || !logoFallback) {
+      return;
+    }
+
+    officialLogo.src = config.logoPath || "assets/logo/logo-tempolux.png";
+
+    officialLogo.addEventListener("load", () => {
+      officialLogo.hidden = false;
+      logoFallback.hidden = true;
+    });
+
+    officialLogo.addEventListener("error", () => {
+      officialLogo.hidden = true;
+      logoFallback.hidden = false;
+    });
+
+    if (officialLogo.complete && officialLogo.naturalWidth > 0) {
+      officialLogo.hidden = false;
+      logoFallback.hidden = true;
+    }
   }
 
   function productCard(product) {
@@ -58,7 +84,9 @@
       ? `<img src="${escapeHtml(product.image)}" alt="${escapeHtml(
           product.imageAlt || product.name,
         )}" loading="lazy" width="640" height="480">`
-      : "<span>Fotografía pendiente</span>";
+      : `<span class="product-visual" data-visual="${escapeHtml(
+          product.visual || "default",
+        )}" role="img" aria-label="Representación visual temporal del producto"><i></i><b></b></span>`;
     const message = encodeURIComponent(
       `Hola, deseo consultar por: ${product.name}`,
     );
@@ -68,7 +96,10 @@
 
     return `
       <article class="card">
-        <div class="product-image">${image}</div>
+        <div class="product-image">
+          ${product.sample ? '<span class="sample-badge">Producto de muestra</span>' : ""}
+          ${image}
+        </div>
         <div class="card-body">
           <div class="meta">
             <span>${escapeHtml(product.category)}</span>
@@ -83,7 +114,7 @@
             ready
               ? 'target="_blank" rel="noopener noreferrer"'
               : 'aria-disabled="true"'
-          }>Pedir por WhatsApp</a>
+          }>${ready ? "Pedir por WhatsApp" : "WhatsApp pendiente"}</a>
         </div>
       </article>
     `;
@@ -168,6 +199,7 @@
   document.querySelector("#year").textContent = new Date().getFullYear();
 
   configureFloatingWhatsApp();
+  configureOfficialLogo();
   renderFilters();
   renderProducts();
 })();
