@@ -7,6 +7,12 @@
   object-fit: cover;
   object-position: var(--image-position, 50% 45%);
   background: #fff;
+  clip-path: inset(
+    var(--crop-top, 0%)
+    var(--crop-right, 0%)
+    var(--crop-bottom, 0%)
+    var(--crop-left, 0%)
+  );
   transform: scale(var(--image-scale, 1.08));
   transform-origin: var(--image-position, 50% 45%);
 }
