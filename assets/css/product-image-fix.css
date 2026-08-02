@@ -1,0 +1,18 @@
+/* Encuadre uniforme para ocultar elementos ubicados en los bordes de las fotos. */
+.product-card .product-photo,
+.dialog-image .dialog-photo {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: var(--image-fit, cover);
+  object-position: var(--image-position, 50% 45%);
+  background: #fff;
+  clip-path: inset(
+    var(--crop-top, 0%)
+    var(--crop-right, 0%)
+    var(--crop-bottom, 0%)
+    var(--crop-left, 0%)
+  );
+  transform: scale(var(--image-scale, 1.08));
+  transform-origin: var(--image-position, 50% 45%);
+}
