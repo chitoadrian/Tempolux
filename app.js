@@ -2,6 +2,7 @@
   "use strict";
 
   const config = window.TEMPOLUX_CONFIG || {};
+  const productDetails = window.TEMPOLUX_PRODUCT_DETAILS || {};
   const categories = [
     "Todos",
     "Accesorios",
@@ -66,7 +67,13 @@
   }
 
   function productImage(product, className = "") {
-    return `<img class="product-photo ${className}" src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy" width="640" height="640">`;
+    const isModal = className.includes("dialog-photo");
+    const position = isModal
+      ? product.modalImagePosition || product.imagePosition || "50% 45%"
+      : product.imagePosition || "50% 45%";
+    const scale = Number(product.imageScale) || 1.08;
+
+    return `<img class="product-photo ${className}" src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy" width="640" height="640" style="--image-position: ${escapeHtml(position)}; --image-scale: ${scale}">`;
   }
 
   function productCard(product) {
@@ -141,7 +148,7 @@
         <p class="eyebrow">${escapeHtml(product.category)}</p>
         <h2 id="dialog-title">${escapeHtml(product.name)}</h2>
         <p class="dialog-price">${escapeHtml(product.price)}</p>
-        <p class="dialog-description">${escapeHtml(product.description || "Consulta los detalles y la disponibilidad de este producto directamente por WhatsApp.")}</p>
+        <p class="dialog-description">${escapeHtml(product.description || "Consulta por WhatsApp para conocer más detalles de este producto.")}</p>
         <p class="dialog-status"><span aria-hidden="true"></span>${product.available ? "Disponible" : "Agotado"}</p>
         ${variantField(product)}
         <a class="button dialog-order" href="${whatsappUrl(product)}" target="_blank" rel="noopener noreferrer">Pedir por WhatsApp</a>
@@ -193,7 +200,10 @@
       if (!response.ok) throw new Error(`No se pudo cargar el catálogo (${response.status}).`);
       const data = await response.json();
       if (!Array.isArray(data)) throw new Error("El catálogo no tiene un formato válido.");
-      products = data;
+      products = data.map((product) => ({
+        ...product,
+        ...(productDetails[product.id] || {}),
+      }));
       renderProducts();
     } catch (error) {
       console.error(error);
