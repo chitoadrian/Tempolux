@@ -1,0 +1,8 @@
+/* Si alguna foto todavía muestra borde, usa esta clase en la tarjeta */
+.product-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  object-position: center;
+  background: #fff;
+}

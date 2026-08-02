@@ -1,0 +1,394 @@
+[
+  {
+    "id": "collar-ojo-proteccion",
+    "name": "Collar Ojo de Protección",
+    "price": "$5.50",
+    "category": "Accesorios",
+    "image": "assets/images/productos/collar-ojo-proteccion.png",
+    "available": true
+  },
+  {
+    "id": "collar-perlitas-mariposa",
+    "name": "Collar de Perlitas Mariposa",
+    "price": "$6.00",
+    "category": "Accesorios",
+    "image": "assets/images/productos/collar-perlitas-mariposa.png",
+    "available": true
+  },
+  {
+    "id": "collar-estrella-verde",
+    "name": "Collar Estrella Verde",
+    "price": "$6.00",
+    "category": "Accesorios",
+    "image": "assets/images/productos/collar-estrella-verde.png",
+    "available": true
+  },
+  {
+    "id": "collar-smile-acero-inoxidable",
+    "name": "Collar Smile de Acero Inoxidable",
+    "price": "$6.00",
+    "category": "Accesorios",
+    "image": "assets/images/productos/collar-smile-acero-inoxidable.png",
+    "available": true
+  },
+  {
+    "id": "crema-blanqueadora-milk-plus",
+    "name": "Crema facial Milk Plus",
+    "price": "$5.50",
+    "category": "Belleza",
+    "image": "assets/images/productos/crema-blanqueadora-milk-plus.png",
+    "available": true
+  },
+  {
+    "id": "reloj-digital-sport-rosa",
+    "name": "Reloj Digital Sport Rosa",
+    "price": "$7.00",
+    "category": "Relojes",
+    "image": "assets/images/productos/reloj-digital-sport-rosa.png",
+    "available": true
+  },
+  {
+    "id": "reloj-elegance-blanco",
+    "name": "Reloj Elegance Blanco",
+    "price": "$6.50",
+    "category": "Relojes",
+    "image": "assets/images/productos/reloj-elegance-blanco.png",
+    "available": true
+  },
+  {
+    "id": "audifonos-capibara-kt01",
+    "name": "Audífonos Inalámbricos Capibara KT-01",
+    "price": "$8.00",
+    "category": "Tecnología",
+    "image": "assets/images/productos/audifonos-capibara-kt01.png",
+    "available": true
+  },
+  {
+    "id": "reloj-invicta-negro-plateado",
+    "name": "Reloj Invicta Sport Negro y Plateado",
+    "price": "$12.00",
+    "category": "Relojes",
+    "image": "assets/images/productos/reloj-invicta-negro-plateado.png",
+    "available": true
+  },
+  {
+    "id": "collar-girasol-dorado",
+    "name": "Collar Girasol Dorado",
+    "price": "$5.00",
+    "category": "Accesorios",
+    "image": "assets/images/productos/collar-girasol-dorado.png",
+    "available": true
+  },
+  {
+    "id": "collar-balon-futbol-dorado",
+    "name": "Collar Balón de Fútbol Dorado",
+    "price": "$5.00",
+    "category": "Accesorios",
+    "image": "assets/images/productos/collar-balon-futbol-dorado.png",
+    "available": true
+  },
+  {
+    "id": "reloj-invicta-dorado-sport",
+    "name": "Reloj Invicta Dorado Sport",
+    "price": "$12.00",
+    "category": "Relojes",
+    "image": "assets/images/productos/reloj-invicta-dorado-sport.png",
+    "available": true
+  },
+  {
+    "id": "locion-corporal-milky-body",
+    "name": "Loción Corporal Milky Body",
+    "price": "$5.00",
+    "category": "Belleza",
+    "image": "assets/images/productos/locion-corporal-milky-body.png",
+    "available": true
+  },
+  {
+    "id": "cera-cabello-shiner-gold-colores",
+    "name": "Cera para Cabello Shiner Gold",
+    "price": "$3.50",
+    "category": "Belleza",
+    "image": "assets/images/productos/cera-cabello-shiner-gold-colores.png",
+    "available": true
+  },
+  {
+    "id": "splash-purple-story-of-love",
+    "name": "Splash Purple Story of Love",
+    "price": "$4.50",
+    "category": "Perfumes",
+    "image": "assets/images/productos/splash-purple-story-of-love.png",
+    "available": true
+  },
+  {
+    "id": "splash-pink-flamingo-story-of-love",
+    "name": "Splash Pink Flamingo Story of Love",
+    "price": "$4.50",
+    "category": "Perfumes",
+    "image": "assets/images/productos/splash-pink-flamingo-story-of-love.png",
+    "available": true
+  },
+  {
+    "id": "splash-lady-vip-rose",
+    "name": "Splash Lady VIP Rosé",
+    "price": "$7.00",
+    "category": "Perfumes",
+    "image": "assets/images/productos/splash-lady-vip-rose.png",
+    "available": true
+  },
+  {
+    "id": "splash-yellow-pineapple",
+    "name": "Splash Yellow Pineapple",
+    "price": "$4.50",
+    "category": "Perfumes",
+    "image": "assets/images/productos/splash-yellow-pineapple.png",
+    "available": true
+  },
+  {
+    "id": "splash-bloom-watermelon",
+    "name": "Splash Bloom Watermelon",
+    "price": "$4.50",
+    "category": "Perfumes",
+    "image": "assets/images/productos/splash-bloom-watermelon.png",
+    "available": true
+  },
+  {
+    "id": "reloj-elegance-rose-blanco",
+    "name": "Reloj Elegance Rosé Blanco",
+    "price": "$6.50",
+    "category": "Relojes",
+    "image": "assets/images/productos/reloj-elegance-rose-blanco.png",
+    "available": true
+  },
+  {
+    "id": "locion-colageno-sanki-sweetie",
+    "name": "Loción Corporal de Colágeno Sanki Sweetie",
+    "price": "$5.50",
+    "category": "Belleza",
+    "image": "assets/images/productos/locion-colageno-sanki-sweetie.png",
+    "available": true
+  },
+  {
+    "id": "gorra-ny-roja-texturizada",
+    "name": "Gorra NY Roja Texturizada",
+    "price": "$7.50",
+    "category": "Gorras",
+    "image": "assets/images/productos/gorra-ny-roja-texturizada.png",
+    "available": true
+  },
+  {
+    "id": "perfume-passion-girl",
+    "name": "Perfume Passion Girl",
+    "price": "$5.00",
+    "category": "Perfumes",
+    "image": "assets/images/productos/perfume-passion-girl.png",
+    "available": true
+  },
+  {
+    "id": "perfume-velvet-rose",
+    "name": "Perfume Velvet Rose",
+    "price": "$5.00",
+    "category": "Perfumes",
+    "image": "assets/images/productos/perfume-velvet-rose.png",
+    "available": true
+  },
+  {
+    "id": "gorra-ny-gris-texturizada",
+    "name": "Gorra NY Gris Texturizada",
+    "price": "$7.50",
+    "category": "Gorras",
+    "image": "assets/images/productos/gorra-ny-gris-texturizada.png",
+    "available": true
+  },
+  {
+    "id": "perfume-passionate-mood-chq",
+    "name": "Perfume Passionate Mood CHQ",
+    "price": "$5.00",
+    "category": "Perfumes",
+    "image": "assets/images/productos/perfume-passionate-mood-chq.png",
+    "available": true
+  },
+  {
+    "id": "perfume-fantasy-femme",
+    "name": "Perfume Fantasy Femme",
+    "price": "$5.00",
+    "category": "Perfumes",
+    "image": "assets/images/productos/perfume-fantasy-femme.png",
+    "available": true
+  },
+  {
+    "id": "panitos-humedos-dinosaurio-rosa",
+    "name": "Pañitos Húmedos Dinosaurio Rosa",
+    "price": "$2.00",
+    "category": "Cuidado personal",
+    "image": "assets/images/productos/panitos-humedos-dinosaurio-rosa.png",
+    "available": true
+  },
+  {
+    "id": "laminas-jabon-portatiles",
+    "name": "Láminas de Jabón Portátiles",
+    "price": "$1.50",
+    "category": "Cuidado personal",
+    "image": "assets/images/productos/laminas-jabon-portatiles.png",
+    "available": true
+  },
+  {
+    "id": "splash-story-of-love-black-gold",
+    "name": "Splash Story of Love Black & Gold",
+    "price": "$5.00",
+    "category": "Perfumes",
+    "image": "assets/images/productos/splash-story-of-love-black-gold.png",
+    "available": true
+  },
+  {
+    "id": "splash-salvaje-lady-idea",
+    "name": "Splash Salvaje Lady Idea",
+    "price": "$4.50",
+    "category": "Perfumes",
+    "image": "assets/images/productos/splash-salvaje-lady-idea.png",
+    "available": true
+  },
+  {
+    "id": "collar-geometrico-dorado",
+    "name": "Collar Geométrico Dorado",
+    "price": "$5.00",
+    "category": "Accesorios",
+    "image": "assets/images/productos/collar-geometrico-dorado.png",
+    "available": true
+  },
+  {
+    "id": "anillo-ojos-turcos-dorado",
+    "name": "Anillo de Ojos Turcos",
+    "price": "$3.00",
+    "category": "Accesorios",
+    "image": "assets/images/productos/anillo-ojos-turcos-dorado.png",
+    "available": true
+  },
+  {
+    "id": "anillo-ojo-turco-ajustable",
+    "name": "Anillo Ojo Turco Ajustable",
+    "price": "$3.00",
+    "category": "Accesorios",
+    "image": "assets/images/productos/anillo-ojo-turco-ajustable.png",
+    "available": true
+  },
+  {
+    "id": "maquina-cortar-cabello-sokany",
+    "name": "Máquina de Cortar Cabello Sokany Profesional",
+    "price": "$12.00",
+    "category": "Tecnología",
+    "image": "assets/images/productos/maquina-cortar-cabello-sokany.png",
+    "available": true
+  },
+  {
+    "id": "reloj-qz-rose-blanco",
+    "name": "Reloj QZ Rosé Blanco",
+    "price": "$6.50",
+    "category": "Relojes",
+    "image": "assets/images/productos/reloj-qz-rose-blanco.png",
+    "available": true
+  },
+  {
+    "id": "reloj-qz-rose-negro",
+    "name": "Reloj QZ Rosé Negro",
+    "price": "$6.50",
+    "category": "Relojes",
+    "image": "assets/images/productos/reloj-qz-rose-negro.png",
+    "available": true
+  },
+  {
+    "id": "reloj-qz-rose-vino",
+    "name": "Reloj QZ Rosé Vino",
+    "price": "$6.50",
+    "category": "Relojes",
+    "image": "assets/images/productos/reloj-qz-rose-vino.png",
+    "available": true
+  },
+  {
+    "id": "llavero-spiderman",
+    "name": "Llavero Spider-Man",
+    "price": "$1.50",
+    "category": "Llaveros",
+    "image": "assets/images/productos/llavero-spiderman.png",
+    "available": true
+  },
+  {
+    "id": "llavero-stitch-azul",
+    "name": "Llavero Stitch Azul",
+    "price": "$1.50",
+    "category": "Llaveros",
+    "image": "assets/images/productos/llavero-stitch-azul.png",
+    "available": true
+  },
+  {
+    "id": "llavero-fresa",
+    "name": "Llavero Fresa",
+    "price": "$1.50",
+    "category": "Llaveros",
+    "image": "assets/images/productos/llavero-fresa.png",
+    "available": true
+  },
+  {
+    "id": "llavero-stitch-angel",
+    "name": "Llavero Stitch con Angel",
+    "price": "$1.50",
+    "category": "Llaveros",
+    "image": "assets/images/productos/llavero-stitch-angel.png",
+    "available": true
+  },
+  {
+    "id": "llavero-hello-kitty-rosa",
+    "name": "Llavero Hello Kitty Rosa",
+    "price": "$1.50",
+    "category": "Llaveros",
+    "image": "assets/images/productos/llavero-hello-kitty-rosa.png",
+    "available": true
+  },
+  {
+    "id": "llavero-sonic-azul",
+    "name": "Llavero Sonic Azul",
+    "price": "$1.50",
+    "category": "Llaveros",
+    "image": "assets/images/productos/llavero-sonic-azul.png",
+    "available": true
+  },
+  {
+    "id": "llavero-buzz-lightyear",
+    "name": "Llavero Buzz Lightyear",
+    "price": "$1.50",
+    "category": "Llaveros",
+    "image": "assets/images/productos/llavero-buzz-lightyear.png",
+    "available": true
+  },
+  {
+    "id": "llavero-mickey-minnie",
+    "name": "Llavero Mickey y Minnie",
+    "price": "$1.50",
+    "category": "Llaveros",
+    "image": "assets/images/productos/llavero-mickey-minnie.png",
+    "available": true
+  },
+  {
+    "id": "llavero-goku-azul",
+    "name": "Llavero Goku Azul",
+    "price": "$1.50",
+    "category": "Llaveros",
+    "image": "assets/images/productos/llavero-goku-azul.png",
+    "available": true
+  },
+  {
+    "id": "llavero-cerezas-rojas",
+    "name": "Llavero Cerezas Rojas",
+    "price": "$1.50",
+    "category": "Llaveros",
+    "image": "assets/images/productos/llavero-cerezas-rojas.png",
+    "available": true
+  },
+  {
+    "id": "llavero-carl-aventura-juntos",
+    "name": "Llavero Carl “Una aventura juntos”",
+    "price": "$1.50",
+    "category": "Llaveros",
+    "image": "assets/images/productos/llavero-carl-aventura-juntos.png",
+    "available": true
+  }
+]
