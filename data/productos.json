@@ -164,7 +164,7 @@
     "name": "Loción Corporal de Colágeno Sanki Sweetie",
     "price": "$5.50",
     "category": "Belleza",
-    "image": "assets/images/productos/locion-colageno-sanki-sweetie.png",
+    "image": "assets/images/productos/locion-corporal-colageno-sanki-sweetie.png",
     "available": true
   },
   {
@@ -276,7 +276,7 @@
     "name": "Máquina de Cortar Cabello Sokany Profesional",
     "price": "$12.00",
     "category": "Tecnología",
-    "image": "assets/images/productos/maquina-cortar-cabello-sokany.png",
+    "image": "assets/images/productos/maquina-cortar-cabello-sokany-profesional.png",
     "available": true
   },
   {
