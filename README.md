@@ -9,7 +9,7 @@ assets/images/productos/       Fotografías reales
 assets/logo/logo-tempolux.png  Logo oficial
 assets/css/product-image-fix.css Ajustes de imágenes
 data/productos.json            Fuente principal del catálogo
-data/products.js               Configuración pública
+data/products.js               Configuración, descripciones y encuadres
 index.html                     Estructura de la página
 style.css                      Diseño responsive
 app.js                         Catálogo, búsqueda, filtros, modal y WhatsApp
@@ -37,7 +37,22 @@ El `id` no debe repetirse. La ruta distingue mayúsculas y minúsculas en GitHub
 
 ## Editar precio o descripción
 
-Busca el producto en `data/productos.json` y modifica únicamente `price` o `description`. Mantén las comillas y comas del formato JSON. Si todavía no existe una descripción, puedes agregar la propiedad `description` al producto.
+Para editar el precio, busca el producto en `data/productos.json` y modifica `price`, manteniendo las comillas y comas del formato JSON.
+
+Las descripciones están en `window.TEMPOLUX_PRODUCT_DETAILS`, dentro de `data/products.js`, asociadas al mismo `id` del producto. Modifica allí la propiedad `description`.
+
+Cada entrada también puede definir ajustes opcionales para el encuadre de su fotografía:
+
+```js
+"identificador-unico": {
+  description: "Descripción breve del producto.",
+  imagePosition: "50% 40%",
+  modalImagePosition: "50% 42%",
+  imageScale: 1.1,
+}
+```
+
+`imagePosition` controla la posición en las tarjetas, `modalImagePosition` la posición en el detalle e `imageScale` el acercamiento en ambas vistas.
 
 ## Eliminar un producto
 
