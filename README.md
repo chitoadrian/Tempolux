@@ -46,6 +46,8 @@ Cada entrada también puede definir ajustes opcionales para el encuadre de su fo
 ```js
 "identificador-unico": {
   description: "Descripción breve del producto.",
+  imageFit: "contain",
+  modalImageFit: "contain",
   imagePosition: "50% 40%",
   modalImagePosition: "50% 42%",
   imageScale: 1.1,
@@ -57,6 +59,8 @@ Cada entrada también puede definir ajustes opcionales para el encuadre de su fo
 
 `imagePosition` e `imageScale` controlan el encuadre de la tarjeta. `modalImagePosition` y `modalImageScale` permiten ajustar por separado la imagen grande del modal.
 
+`imageFit` y `modalImageFit` aceptan `contain` para mostrar la fotografía completa o `cover` para llenar el contenedor. Si se omiten, se utiliza `cover`.
+
 Los campos `cropTop`, `cropBottom`, `cropLeft` y `cropRight` recortan franjas rectangulares completas en la tarjeta. Para el modal se pueden usar sus equivalentes `modalCropTop`, `modalCropBottom`, `modalCropLeft` y `modalCropRight`. Los valores son porcentajes entre 0 y 45.
 
 ## Eliminar un producto
@@ -65,7 +69,7 @@ Elimina su objeto completo de `data/productos.json`. Revisa la coma entre los ob
 
 ## Agregar o reemplazar una imagen
 
-Guarda el archivo dentro de `assets/images/productos/` y actualiza la propiedad `image` del producto. Se recomiendan imágenes cuadradas, comprimidas y con fondo limpio. La interfaz utiliza `object-fit: contain` para mostrar la fotografía completa sin deformarla.
+Guarda el archivo dentro de `assets/images/productos/` y actualiza la propiedad `image` del producto. Se recomiendan imágenes cuadradas, comprimidas y con fondo limpio. Usa `imageFit: "contain"` cuando sea importante mostrar el producto completo.
 
 ## Cambiar el número de WhatsApp
 
