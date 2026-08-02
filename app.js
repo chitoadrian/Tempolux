@@ -74,8 +74,19 @@
     const scale = isModal
       ? Number(product.modalImageScale) || Number(product.imageScale) || 1.08
       : Number(product.imageScale) || 1.08;
+    const crop = ["Top", "Right", "Bottom", "Left"].map((side) => {
+      const modalValue = product[`modalCrop${side}`];
+      const value = isModal && modalValue !== undefined
+        ? modalValue
+        : product[`crop${side}`];
+      const percentage = Number(value);
 
-    return `<img class="product-photo ${className}" src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy" width="640" height="640" style="--image-position: ${escapeHtml(position)}; --image-scale: ${scale}">`;
+      return Number.isFinite(percentage)
+        ? Math.min(Math.max(percentage, 0), 45)
+        : 0;
+    });
+
+    return `<img class="product-photo ${className}" src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy" width="640" height="640" style="--image-position: ${escapeHtml(position)}; --image-scale: ${scale}; --crop-top: ${crop[0]}%; --crop-right: ${crop[1]}%; --crop-bottom: ${crop[2]}%; --crop-left: ${crop[3]}%">`;
   }
 
   function productCard(product) {
