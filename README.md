@@ -49,10 +49,11 @@ Cada entrada también puede definir ajustes opcionales para el encuadre de su fo
   imagePosition: "50% 40%",
   modalImagePosition: "50% 42%",
   imageScale: 1.1,
+  modalImageScale: 1.05,
 }
 ```
 
-`imagePosition` controla la posición en las tarjetas, `modalImagePosition` la posición en el detalle e `imageScale` el acercamiento en ambas vistas.
+`imagePosition` e `imageScale` controlan el encuadre de la tarjeta. `modalImagePosition` y `modalImageScale` permiten ajustar por separado la imagen grande del modal.
 
 ## Eliminar un producto
 
