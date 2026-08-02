@@ -3,37 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="TempoLux: catálogo público de detalles elegantes para cada momento.">
+  <meta name="description" content="TempoLux: catálogo público de productos y pedidos por WhatsApp.">
   <meta name="theme-color" content="#293b4a">
-  <title>TempoLux | Detalles para cada momento</title>
+  <title>TempoLux | Catálogo</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/css/product-image-fix.css">
   <script src="data/products.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#contenido">Saltar al contenido</a>
 
-  <div class="demo-notice" role="status">
-    Catálogo de demostración. Próximamente productos reales.
-  </div>
-
   <header id="inicio">
     <div class="container header-inner">
       <a class="brand" href="#inicio" aria-label="TempoLux, ir al inicio">
-        <span class="logo-fallback" aria-hidden="true">TL</span>
-        <img class="official-logo" src="assets/logo/logo-tempolux.png" alt="Logo de TempoLux" hidden>
-        <span class="brand-copy">
-          <strong>TempoLux</strong>
-          <small>Detalles para cada momento</small>
-        </span>
+        <img class="official-logo" src="assets/logo/logo-tempolux.png" alt="TempoLux">
       </a>
-
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">
         <span class="sr-only">Abrir menú</span><i></i><i></i><i></i>
       </button>
-
       <nav id="menu" aria-label="Navegación principal">
-        <a href="#catalogo">Colección</a>
+        <a href="#catalogo">Productos</a>
         <a href="#destacados">Destacados</a>
         <a href="#nosotros">TempoLux</a>
         <a href="#pedidos">Cómo pedir</a>
@@ -45,71 +35,70 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Selección con intención</p>
-          <h1 id="hero-title">Un detalle especial lo cambia todo.</h1>
-          <p class="lead">Descubre una colección pensada para acompañar momentos, sorprender a alguien especial y hacer memorable lo cotidiano.</p>
+          <p class="eyebrow">Detalles para cada momento</p>
+          <h1 id="hero-title">Encuentra algo especial en TempoLux.</h1>
+          <p class="lead">Explora nuestro catálogo de accesorios, relojes, perfumes, belleza, tecnología y mucho más. Pide directamente por WhatsApp.</p>
           <div class="hero-actions">
-            <a class="button" href="#catalogo">Explorar colección</a>
-            <a class="text-link" href="#pedidos">Conocer cómo pedir <span aria-hidden="true">→</span></a>
+            <a class="button" href="#catalogo">Ver productos</a>
+            <a class="text-link" href="https://wa.me/593989398256" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp <span aria-hidden="true">→</span></a>
           </div>
-          <ul class="hero-benefits" aria-label="Beneficios de TempoLux">
-            <li>Selección cuidada</li><li>Atención cercana</li><li>Pedido sencillo</li>
+          <ul class="hero-benefits" aria-label="Características de TempoLux">
+            <li>Catálogo público</li><li>Atención directa</li><li>Pedido sencillo</li>
           </ul>
         </div>
-
-        <div class="hero-showcase" aria-label="Composición visual de productos de demostración">
-          <div class="showcase-card showcase-main"><span class="visual-watch" aria-hidden="true"><i></i></span><small>Colección de muestra</small><strong>Tiempo & estilo</strong></div>
-          <div class="showcase-card showcase-small"><span class="visual-perfume" aria-hidden="true"><i></i></span><small>Detalles memorables</small></div>
-          <span class="hero-seal" aria-hidden="true">TL</span>
+        <div class="hero-products" aria-label="Productos de TempoLux">
+          <div class="hero-product hero-product-main"><img src="assets/images/productos/reloj-invicta-dorado-sport.png" alt="Reloj Invicta Dorado Sport"></div>
+          <div class="hero-product hero-product-small"><img src="assets/images/productos/splash-lady-vip-rose.png" alt="Splash Lady VIP Rosé"></div>
         </div>
       </div>
     </section>
 
-    <section class="category-strip" aria-label="Categorías de demostración">
-      <div class="container category-list"><span>Relojes</span><i>✦</i><span>Perfumes</span><i>✦</i><span>Accesorios</span><i>✦</i><span>Tecnología</span></div>
+    <section class="category-strip" aria-label="Categorías de TempoLux">
+      <div class="container category-list"><span>Accesorios</span><i>✦</i><span>Relojes</span><i>✦</i><span>Perfumes</span><i>✦</i><span>Belleza</span><i>✦</i><span>Tecnología</span></div>
     </section>
 
     <section class="section" id="catalogo" aria-labelledby="catalog-title">
       <div class="container">
-        <div class="section-head">
-          <div><p class="eyebrow">Explora a tu ritmo</p><h2 id="catalog-title">Nuestra colección</h2></div>
-          <p>Productos demostrativos para visualizar el diseño. Serán reemplazados por el catálogo real.</p>
-        </div>
-
+        <div class="section-head"><div><p class="eyebrow">Catálogo completo</p><h2 id="catalog-title">Nuestros productos</h2></div><p>Busca por nombre o elige una categoría para encontrar lo que necesitas.</p></div>
         <div class="tools">
-          <label class="search-field"><span class="search-icon" aria-hidden="true">⌕</span><span class="sr-only">Buscar productos</span><input id="search" type="search" placeholder="Buscar en la colección…" autocomplete="off"></label>
+          <label class="search-field"><span class="search-icon" aria-hidden="true">⌕</span><span class="sr-only">Buscar productos por nombre</span><input id="search" type="search" placeholder="Buscar un producto…" autocomplete="off"></label>
           <div id="filters" class="filters" aria-label="Filtrar por categoría"></div>
         </div>
-
-        <p id="summary" class="summary" aria-live="polite"></p>
+        <p id="summary" class="summary" aria-live="polite">Cargando productos…</p>
+        <p id="catalog-error" class="catalog-error" hidden>No fue posible cargar los productos. Intenta actualizar la página.</p>
         <div id="products" class="grid"></div>
-        <div id="catalog-empty" class="empty"><b aria-hidden="true">✦</b><h3>Sin coincidencias</h3><p>Prueba con otra búsqueda o categoría.</p></div>
+        <div id="catalog-empty" class="empty" hidden><b aria-hidden="true">✦</b><h3>Sin coincidencias</h3><p>Prueba con otro nombre o categoría.</p></div>
       </div>
     </section>
 
     <section class="section featured-section" id="destacados" aria-labelledby="featured-title">
       <div class="container">
-        <div class="section-head light"><div><p class="eyebrow">Elegidos para inspirarte</p><h2 id="featured-title">Destacados</h2></div><p>Una vista de cómo lucirán las recomendaciones especiales de TempoLux.</p></div>
+        <div class="section-head light"><div><p class="eyebrow">Selección TempoLux</p><h2 id="featured-title">Productos destacados</h2></div><p>Una selección de productos reales de nuestro catálogo.</p></div>
         <div id="featured" class="grid"></div>
-        <div id="featured-empty" class="empty compact"><p>Productos destacados pendientes.</p></div>
+        <div id="featured-empty" class="empty compact" hidden><p>No hay productos destacados disponibles.</p></div>
       </div>
     </section>
 
     <section class="section story-section" id="nosotros">
       <div class="container story-grid">
-        <div class="story-art" aria-hidden="true"><span class="story-monogram">TL</span><i></i><b></b></div>
-        <div class="story-copy"><p class="eyebrow">La esencia de TempoLux</p><h2>Detalles elegidos para celebrar lo especial.</h2><p>TempoLux será un espacio cercano para descubrir opciones variadas con una presentación cuidada, clara y fácil de explorar desde cualquier dispositivo.</p><p>La historia y propuesta definitiva del emprendimiento se incorporarán junto con la información real.</p><span class="pending-chip">Contenido institucional pendiente</span></div>
+        <div class="story-photo"><img src="assets/logo/logo-tempolux.png" alt="Logo oficial de TempoLux"></div>
+        <div class="story-copy"><p class="eyebrow">Sobre TempoLux</p><h2>Variedad y detalles para compartir.</h2><p>TempoLux es un catálogo público donde puedes descubrir productos variados y solicitar información de forma directa y sencilla.</p><p>No necesitas crear una cuenta. Explora libremente y contáctanos por WhatsApp cuando encuentres el producto que buscas.</p></div>
       </div>
     </section>
 
     <section class="section order-section" id="pedidos">
-      <div class="container"><div class="order-heading"><p class="eyebrow">Fácil, directo y personal</p><h2>Tu pedido en tres pasos</h2></div><div class="steps"><article><span>01</span><h3>Explora</h3><p>Revisa el catálogo y encuentra el detalle que buscas.</p></article><article><span>02</span><h3>Elige</h3><p>Selecciona el producto y consulta su disponibilidad.</p></article><article><span>03</span><h3>Escríbenos</h3><p>Confirma el pedido y la entrega directamente por WhatsApp.</p></article></div><p class="pending-chip centered">WhatsApp, cobertura, entregas y formas de pago pendientes</p></div>
+      <div class="container"><div class="order-heading"><p class="eyebrow">Rápido y directo</p><h2>Haz tu pedido en tres pasos</h2></div><div class="steps"><article><span>01</span><h3>Explora</h3><p>Revisa todos los productos o usa los filtros.</p></article><article><span>02</span><h3>Elige</h3><p>Abre el producto para ver sus detalles y variantes.</p></article><article><span>03</span><h3>Escríbenos</h3><p>Envía el mensaje preparado y confirma tu pedido.</p></article></div></div>
     </section>
   </main>
 
-  <a class="whatsapp disabled" href="#pedidos" aria-label="WhatsApp pendiente de configurar" aria-disabled="true"><span>WA</span><small>Próximamente</small></a>
+  <a class="whatsapp" href="https://wa.me/593989398256" target="_blank" rel="noopener noreferrer" aria-label="Contactar a TempoLux por WhatsApp"><span>WA</span><small>Escríbenos</small></a>
 
-  <footer><div class="container footer-grid"><div class="footer-brand"><strong>TempoLux</strong><p>Detalles para cada momento.</p><small>Catálogo público · Sin registro · Pedidos por WhatsApp</small></div><div><h2>Explorar</h2><a href="#catalogo">Colección</a><a href="#destacados">Destacados</a><a href="#pedidos">Cómo pedir</a></div><div><h2>Contacto</h2><p>WhatsApp: pendiente<br>Correo: pendiente<br>Redes: pendientes</p></div></div><div class="container footer-bottom"><p>© <span id="year"></span> TempoLux.</p><a href="#inicio">Volver arriba ↑</a></div></footer>
-  <noscript><p class="noscript">Activa JavaScript para buscar y filtrar el catálogo.</p></noscript>
+  <dialog id="product-dialog" class="product-dialog" aria-labelledby="dialog-title">
+    <button id="dialog-close" class="dialog-close" type="button" aria-label="Cerrar detalle">×</button>
+    <div id="dialog-product-content" class="dialog-product-content"></div>
+  </dialog>
+
+  <footer><div class="container footer-grid"><div class="footer-brand"><img src="assets/logo/logo-tempolux.png" alt="TempoLux"><p>Detalles para cada momento.</p><small>Catálogo público · Pedidos por WhatsApp</small></div><div><h2>Explorar</h2><a href="#catalogo">Productos</a><a href="#destacados">Destacados</a><a href="#pedidos">Cómo pedir</a></div><div><h2>Contacto</h2><a href="https://wa.me/593989398256" target="_blank" rel="noopener noreferrer">WhatsApp: +593 98 939 8256</a></div></div><div class="container footer-bottom"><p>© <span id="year"></span> TempoLux.</p><a href="#inicio">Volver arriba ↑</a></div></footer>
+  <noscript><p class="noscript">Activa JavaScript para visualizar el catálogo.</p></noscript>
 </body>
 </html>
